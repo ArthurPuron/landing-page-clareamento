@@ -20,12 +20,13 @@
             font-family: 'Poppins', sans-serif;
         }
         
-        /* Paleta de Cores Sofisticada */
+        /* NOVA PALETA DE CORES */
         :root {
-            --color-primary: #0D9488; /* Verde-água/Azul-petróleo para destaque */
-            --color-primary-hover: #0F766E;
-            --color-background: #F8F7F5; /* Bege claro para seções */
-            --color-text: #333333; /* Cinza escuro para texto */
+            --color-primary: #10112A;       /* Azul Profundo */
+            --color-primary-hover: #0B0C1F;  /* Azul Profundo (mais escuro para hover) */
+            --color-background: #F8F9FA;     /* Fundo Claro (Secundária) */
+            --color-accent: #E0B74F;         /* Dourado (Destaque) */
+            --color-text: #333333;           /* Texto Principal */
         }
 
         .bg-primary { background-color: var(--color-primary); }
@@ -34,18 +35,19 @@
         .border-primary { border-color: var(--color-primary); }
         .bg-background { background-color: var(--color-background); }
         .text-base-color { color: var(--color-text); }
+        .text-accent { color: var(--color-accent); }
     </style>
 </head>
 <body class="text-base-color">
 
     <section id="inicio" class="relative min-h-screen flex items-center justify-center text-center text-white bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/8199571/pexels-photo-8199571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
         
         <div class="relative container mx-auto px-6 z-10">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">O Sorriso Branco e Confiante que Você Merece em Campinas</h1>
             <h2 class="text-xl md:text-2xl font-light mb-6 max-w-3xl mx-auto">Resultados naturais com um tratamento seguro, confortável e 100% personalizado para você.</h2>
             <div class="mb-8">
-                <p class="text-lg font-semibold">Avaliações 5 Estrelas no Google <span class="text-yellow-400">★★★★★</span></p>
+                <p class="text-lg font-semibold">Avaliações 5 Estrelas no Google <span class="text-accent">★★★★★</span></p>
             </div>
             <a href="#contato" class="cta-button bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
                 Quero Agendar Minha Avaliação
@@ -130,7 +132,7 @@
                     <div class="flex items-center">
                         <div class="ml-auto text-right">
                             <p class="font-bold">Amanda L.</p>
-                            <p class="text-yellow-500">★★★★★</p>
+                            <p class="text-accent">★★★★★</p>
                         </div>
                     </div>
                 </div>
@@ -139,7 +141,7 @@
                     <div class="flex items-center">
                         <div class="ml-auto text-right">
                             <p class="font-bold">Felipe F.</p>
-                            <p class="text-yellow-500">★★★★★</p>
+                            <p class="text-accent">★★★★★</p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +150,7 @@
                      <div class="flex items-center">
                         <div class="ml-auto text-right">
                             <p class="font-bold">Roseana S.</p>
-                            <p class="text-yellow-500">★★★★★</p>
+                            <p class="text-accent">★★★★★</p>
                         </div>
                     </div>
                 </div>
@@ -203,11 +205,11 @@
                 <p>Rua Fictícia, 123 - Sala 45, Bairro Cambuí, Campinas - SP</p>
                 <p>(19) 3333-4444</p>
             </div>
-             <p class="text-xs text-gray-500 mt-6">&copy; 2025 Dra. Amanda Ferreira. Todos os direitos reservados.</p>
+             <p class="text-xs text-gray-500 mt-6">© 2025 Dra. Amanda Ferreira. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/5519999999999?text=Ol%C3%A1!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20clareamento%20dental." target="_blank" class="fixed bottom-5 right-5 w-16 h-16 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center text-3xl hover:bg-green-600 transition duration-300 z-50">
+    <a href="https://wa.me/5519999999999?text=Ol%C3%A1!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20clareamento%20dental." target="_blank" class="fixed bottom-5 right-5 w-16 h-16 bg-[#28a745] text-white rounded-full shadow-lg flex items-center justify-center text-3xl hover:bg-[#218838] transition duration-300 z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
