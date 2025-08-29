@@ -218,7 +218,7 @@
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             <div class="order-2 lg:order-1">
-                <form action="#" method="POST" class="space-y-6 bg-white p-8 rounded-lg shadow-lg">
+                <form id="contact-form" class="space-y-6 bg-white p-8 rounded-lg shadow-lg">
                     <div>
                         <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
                         <input type="text" id="nome" name="nome" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
@@ -227,8 +227,9 @@
                         <label for="whatsapp" class="block text-sm font-medium text-gray-700">WhatsApp (com DDD)</label>
                         <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(19) 99999-9999" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
                     </div>
+                    
                     <div>
-                        <button type="submit" class="w-full bg-primary hover:bg-primary-hover text-white font-bold py-4 px-6 rounded-md text-lg transition duration-300">
+                        <button type="button" id="submit-button" class="w-full bg-primary hover:bg-primary-hover text-white font-bold py-4 px-6 rounded-md text-lg transition duration-300">
                             AGENDAR MINHA AVALIAÇÃO AGORA
                         </button>
                     </div>
@@ -432,6 +433,64 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// ===================================================================
+// LÓGICA DE ENVIO DO FORMULÁRIO DE CONTATO (LANDING PAGE)
+// ===================================================================
+const contactForm = document.getElementById('contact-form');
+const submitButton = document.getElementById('submit-button');
+
+if (contactForm && submitButton) {
+    submitButton.addEventListener('click', async () => {
+        // 1. Captura os dados do formulário
+        const patientName = document.getElementById('nome').value;
+        const patientWhatsapp = document.getElementById('whatsapp').value;
+        const whatsappRedirectURL = 'https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21';
+
+        // 2. Validação simples
+        if (!patientName || !patientWhatsapp) {
+            alert('Por favor, preencha seu nome e WhatsApp.');
+            return;
+        }
+
+        // 3. Desabilita o botão para evitar múltiplos cliques
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+
+        try {
+            // 4. Envia os dados para a sua Netlify Function
+            const response = await fetch('/.netlify/functions/create-appointment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    // Dados que a sua função espera
+                    patientName: patientName,
+                    patientWhatsapp: patientWhatsapp,
+                    // Enviando null para os campos que não temos neste formulário
+                    date: null, 
+                    time: null, 
+                    patientBirthdate: null,
+                }),
+            });
+            
+            const result = await response.json();
+            if (!response.ok) {
+                // Se der erro no servidor, avisa o usuário
+                throw new Error(result.error || 'Ocorreu um erro ao enviar seus dados.');
+            }
+
+            // 5. SUCESSO! Redireciona para o WhatsApp
+            console.log('Dados enviados com sucesso!', result);
+            window.location.href = whatsappRedirectURL;
+
+        } catch (error) {
+            // 6. ERRO! Avisa o usuário e reabilita o botão
+            console.error('Erro ao enviar formulário:', error);
+            alert(`Não foi possível enviar sua solicitação. Por favor, tente novamente. Detalhe: ${error.message}`);
+            submitButton.disabled = false;
+            submitButton.textContent = 'AGENDAR MINHA AVALIAÇÃO AGORA';
+        }
+    });
+}
         
     </script>
 
