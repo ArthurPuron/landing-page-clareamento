@@ -121,40 +121,51 @@
 </section>
     
 <section id="depoimentos" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">A Confiança de Nossos Pacientes</h2>
-<img src="https://i.imgur.com/nWI3vh6.png" alt="Avaliações 5 estrelas no Google" class="h-12 mx-auto mb-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-background p-8 rounded-lg shadow-lg">
-                    <p class="text-gray-600 mb-6 italic">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
-                    <div class="flex items-center">
-                        <div class="ml-auto text-right">
-                            <p class="font-bold">Mariana C.</p>
-                            <p class="text-accent">★★★★★</p>
-                        </div>
-                    </div>
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">A Confiança de Nossos Pacientes</h2>
+        <img src="https://i.imgur.com/nWI3vh6.png" alt="Avaliações 5 estrelas no Google" class="h-12 mx-auto mb-12">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            
+            <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
+                <div class="flex-grow">
+                    <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
                 </div>
-                <div class="bg-background p-8 rounded-lg shadow-lg">
-                    <p class="text-gray-600 mb-6 italic">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
-                    <div class="flex items-center">
-                        <div class="ml-auto text-right">
-                            <p class="font-bold">Hela B.</p>
-                            <p class="text-accent">★★★★★</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-background p-8 rounded-lg shadow-lg">
-                    <p class="text-gray-600 mb-6 italic">"Minha experiência foi simplesmente incrível! Sou daquelas pessoas que costumam ficar apreensivas com dentistas, mas aqui foi totalmente diferente. A delicadeza e o cuidado da Dra. Amanda fizeram com que me sentisse muito confortável. Amei tudo, desde o ambiente até o atendimento. Tenho certeza de que o sucesso é garantido e estarei de volta em breve!"</p>
-                     <div class="flex items-center">
-                        <div class="ml-auto text-right">
-                            <p class="font-bold">Rachel P.</p>
-                            <p class="text-accent">★★★★★</p>
-                        </div>
+                <div class="flex items-center mt-auto">
+                    <div class="ml-auto text-right">
+                        <p class="font-bold">Mariana C.</p>
+                        <p class="text-accent">★★★★★</p>
                     </div>
                 </div>
             </div>
+            
+            <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
+                <div class="flex-grow">
+                    <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
+                </div>
+                <div class="flex items-center mt-auto">
+                    <div class="ml-auto text-right">
+                        <p class="font-bold">Hela B.</p>
+                        <p class="text-accent">★★★★★</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
+                <div class="flex-grow">
+                    <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"Minha experiência foi simplesmente incrível! Sou daquelas pessoas que costumam ficar apreensivas com dentistas, mas aqui foi totalmente diferente. A delicadeza e o cuidado da Dra. Amanda fizeram com que me sentisse muito confortável. Amei tudo, desde o ambiente até o atendimento. Tenho certeza de que o sucesso é garantido e estarei de volta em breve!"</p>
+                </div>
+                <div class="flex items-center mt-auto">
+                    <div class="ml-auto text-right">
+                        <p class="font-bold">Rachel P.</p>
+                        <p class="text-accent">★★★★★</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
     
     <section id="passos" class="py-20 bg-background">
     <div class="container mx-auto px-6 text-center">
@@ -396,6 +407,32 @@ faqItems.forEach(item => {
         }
     });
 });
+// Adicione este código dentro da sua tag <script> no final da página
+
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonials = document.querySelectorAll('.testimonial-text');
+
+    testimonials.forEach(textElement => {
+        // Verifica se o texto está realmente transbordando (sendo cortado)
+        if (textElement.scrollHeight > textElement.clientHeight) {
+            
+            // Cria o botão "Ver mais"
+            const seeMoreBtn = document.createElement('button');
+            seeMoreBtn.innerText = 'Ver mais...';
+            seeMoreBtn.className = 'text-primary font-semibold mt-2 text-sm hover:underline focus:outline-none';
+            
+            // Insere o botão logo após o parágrafo do depoimento
+            textElement.parentNode.insertBefore(seeMoreBtn, textElement.nextSibling);
+
+            // Adiciona a funcionalidade de clique ao botão
+            seeMoreBtn.addEventListener('click', () => {
+                textElement.classList.remove('line-clamp-4'); // Remove a classe que corta o texto
+                seeMoreBtn.style.display = 'none'; // Esconde o botão "Ver mais"
+            });
+        }
+    });
+});
+        
     </script>
 
 </body>
