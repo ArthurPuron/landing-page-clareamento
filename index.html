@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clareamento Dental Personalizado em Campinas | Dra. Amanda Ferreira</title>
@@ -16,6 +18,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* Adicione este código dentro da sua tag <style> */
+.swiper-slide {
+  transition: opacity 0.3s ease-in-out;
+}
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 0.4; /* Deixa os slides laterais com 40% de opacidade */
+}
+.swiper-slide-active {
+  opacity: 1; /* Garante que o slide central fique 100% visível */
+}
+/* Estilizando as setas de navegação */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--color-primary) !important; /* Usa a cor primária do seu site */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    transition: background-color 0.3s;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 18px !important;
+    font-weight: bold;
+}
         /* Adicionando a fonte Poppins como padrão e definindo cores personalizadas */
        html, body {
     font-family: 'Poppins', sans-serif;
@@ -81,23 +110,27 @@
     </div>
 </section>
 
-<section id="resultados" class="py-20 bg-background">
+<section id="resultados" class="py-20 bg-background overflow-hidden">
     <div class="container mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">Sorrisos Reais, Com Naturalidade</h2>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                <img src="https://i.imgur.com/6UK6GhH.jpeg" alt="Resultado de clareamento dental 1" class="w-full h-auto object-cover">
-            </div>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                <img src="https://i.imgur.com/7c9gwJ2.jpeg" alt="Resultado de clareamento dental 2" class="w-full h-auto object-cover">
-            </div>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                <img src="https://i.imgur.com/iGGvgN2.jpeg" alt="Resultado de clareamento dental 3" class="w-full h-auto object-cover">
-            </div>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-                <img src="https://i.imgur.com/i7NTpWN.png" alt="Resultado de clareamento dental 4" class="w-full h-auto object-cover">
-            </div>
+        <div class="swiper mySwiper w-full py-8">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg-transparent">
+                    <img src="https://i.imgur.com/6UK6GhH.jpeg" alt="Resultado de clareamento dental 1" class="rounded-lg shadow-xl w-full h-auto object-cover" />
+                </div>
+                <div class="swiper-slide bg-transparent">
+                    <img src="https://i.imgur.com/7c9gwJ2.jpeg" alt="Resultado de clareamento dental 2" class="rounded-lg shadow-xl w-full h-auto object-cover" />
+                </div>
+                <div class="swiper-slide bg-transparent">
+                    <img src="https://i.imgur.com/iGGvgN2.jpeg" alt="Resultado de clareamento dental 3" class="rounded-lg shadow-xl w-full h-auto object-cover" />
+                </div>
+                <div class="swiper-slide bg-transparent">
+                    <img src="https://i.imgur.com/i7NTpWN.png" alt="Resultado de clareamento dental 4" class="rounded-lg shadow-xl w-full h-auto object-cover" />
+                </div>
+                </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
 
         <p class="mt-8 text-gray-600">Fotos autorizadas pelos pacientes.</p>
@@ -105,8 +138,9 @@
         <p class="text-xs text-gray-500 mt-12 max-w-3xl mx-auto italic">
             Esta divulgação segue as diretrizes do Conselho Federal de Odontologia (CFO), sendo exibido exclusivamente para fins informativos. Cada caso é único e os resultados podem variar conforme a necessidade e resposta biológica individual de cada paciente.
         </p>
-        </div>
-</section>c
+
+    </div>
+</section>
 
 <section id="sobre" class="py-20 bg-white">
     <div class="container mx-auto px-6">
@@ -388,6 +422,47 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
     </a>
 
     <script>
+        // Adicione este código dentro da sua tag <script> no final da página
+
+// ===================================================================
+// INICIALIZAÇÃO DO CARROSSEL SWIPER.JS
+// ===================================================================
+var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        // Para telas de celular, o efeito coverflow é menos pronunciado
+        320: {
+            slidesPerView: 1.5,
+            coverflowEffect: {
+                rotate: 20,
+                depth: 100,
+            },
+        },
+        // Para telas maiores, o efeito é mais 3D
+        768: {
+            slidesPerView: 2.5,
+            coverflowEffect: {
+                rotate: 50,
+                depth: 100,
+            },
+        }
+    }
+});
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
