@@ -18,6 +18,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* Adicione este novo bloco de CSS na sua tag <style> */
+
+/* Posicionamento customizado para as setas dos DEPOIMENTOS */
+.testimonial-button-prev, .testimonial-button-next {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.testimonial-button-prev {
+    left: 0; /* Posição à esquerda */
+}
+.testimonial-button-next {
+    right: 0; /* Posição à direita */
+}
        /* Adicione este código dentro da sua tag <style> */
 /* Estilos para o carrossel de RESULTADOS (mySwiper) */
 .mySwiper .swiper-slide {
@@ -203,14 +216,14 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
 </section>
     
 <section id="depoimentos" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto px-6 relative">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">A Confiança de Nossos Pacientes</h2>
         <img src="https://i.imgur.com/nWI3vh6.png" alt="Avaliações 5 estrelas no Google" class="h-12 mx-auto mb-12">
         
-        <div class="swiper testimonialSwiper w-full pb-12 relative">
+        <div class="swiper testimonialSwiper w-full pb-12">
             <div class="swiper-wrapper">
                 
-                <div class="swiper-slide h-auto">
+                <div class="swiper-slide h-auto px-4 md:px-0">
                     <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
                         <div class="flex-grow">
                             <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
@@ -224,10 +237,10 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
                     </div>
                 </div>
 
-                <div class="swiper-slide h-auto">
+                <div class="swiper-slide h-auto px-4 md:px-0">
                     <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
                         <div class="flex-grow">
-                            <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada."</p>
+                            <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança..."</p>
                         </div>
                         <div class="flex items-center mt-auto">
                             <div class="ml-auto text-right">
@@ -238,7 +251,7 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
                     </div>
                 </div>
 
-                <div class="swiper-slide h-auto">
+                <div class="swiper-slide h-auto px-4 md:px-0">
                     <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
                         <div class="flex-grow">
                             <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"Atendimento excelente da dra. Amanda, muito atenciosa e altamente capacitada, higiene impecável, consultório completo com equipamentos de última geração... muito satisfeito!!!"</p>
@@ -252,12 +265,26 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
                     </div>
                 </div>
 
+                <div class="swiper-slide h-auto px-4 md:px-0">
+                    <div class="bg-background p-8 rounded-lg shadow-lg flex flex-col h-full">
+                        <div class="flex-grow">
+                            <p class="testimonial-text line-clamp-4 text-gray-600 mb-6 italic">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
+                        </div>
+                        <div class="flex items-center mt-auto">
+                            <div class="ml-auto text-right">
+                                <p class="font-bold">Hela B.</p>
+                                <p class="text-accent">★★★★★</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                 
+            </div>
             <div class="swiper-pagination"></div>
-            
-            <div class="swiper-button-next hidden md:flex"></div>
-            <div class="swiper-button-prev hidden md:flex"></div>
         </div>
+        
+        <div class="swiper-button-next testimonial-button-next hidden md:flex"></div>
+        <div class="swiper-button-prev testimonial-button-prev hidden md:flex"></div>
     </div>
 </section>
     
@@ -457,205 +484,148 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-
-        // Adicione este código dentro da sua tag <script> no final da página
-
-// ===================================================================
-// INICIALIZAÇÃO DO CARROSSEL DE DEPOIMENTOS
-// ===================================================================
-var testimonialSwiper = new Swiper(".testimonialSwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    // Deixa o carrossel responsivo
-    breakpoints: {
-        // A partir de 768px (tablets)
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
+   <script>
+    // ===================================================================
+    // INICIALIZAÇÃO DO CARROSSEL DE RESULTADOS (mySwiper)
+    // ===================================================================
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
         },
-        // A partir de 1024px (desktops)
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
+        navigation: {
+            // ATENÇÃO: Usando classes genéricas que estão DENTRO do HTML deste carrossel
+            nextEl: "#resultados .swiper-button-next",
+            prevEl: "#resultados .swiper-button-prev",
         },
-    },
-});
-        // Adicione este código dentro da sua tag <script> no final da página
-
-// ===================================================================
-// INICIALIZAÇÃO DO CARROSSEL SWIPER.JS
-// ===================================================================
-var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    loop: true,
-    coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-        // Para telas de celular, o efeito coverflow é menos pronunciado
-        320: {
-            slidesPerView: 1.5,
-            coverflowEffect: {
-                rotate: 20,
-                depth: 100,
-            },
-        },
-        // Para telas maiores, o efeito é mais 3D
-        768: {
-            slidesPerView: 2.5,
-            coverflowEffect: {
-                rotate: 50,
-                depth: 100,
-            },
+        breakpoints: {
+            320: { slidesPerView: 1.5, coverflowEffect: { rotate: 20, depth: 100 } },
+            768: { slidesPerView: 2.5, coverflowEffect: { rotate: 50, depth: 100 } }
         }
-    }
-});
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+    });
 
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+    // ===================================================================
+    // INICIALIZAÇÃO DO CARROSSEL DE DEPOIMENTOS (testimonialSwiper)
+    // ===================================================================
+    var testimonialSwiper = new Swiper(".testimonialSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            // ATENÇÃO: Apontando para as classes ÚNICAS que criamos
+            nextEl: ".testimonial-button-next",
+            prevEl: ".testimonial-button-prev",
+        },
+        breakpoints: {
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+        },
+    });
+
+    // ===================================================================
+    // OUTROS SCRIPTS (Rolagem, FAQ, Formulário, etc.)
+    // ===================================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    const faqItems = document.querySelectorAll('.faq-question');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            const icon = item.querySelector('.faq-icon');
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                if (ans !== answer && ans.style.maxHeight) {
+                    ans.style.maxHeight = null;
+                    ans.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate-45');
                 }
             });
-        });
-// Adicione este código dentro da tag <script> no final do seu arquivo HTML
-
-const faqItems = document.querySelectorAll('.faq-question');
-
-faqItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const answer = item.nextElementSibling;
-        const icon = item.querySelector('.faq-icon');
-
-        // Fecha outros itens abertos para funcionar como um acordeão clássico
-        document.querySelectorAll('.faq-answer').forEach(ans => {
-            if (ans !== answer && ans.style.maxHeight) {
-                ans.style.maxHeight = null;
-                ans.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate-45');
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.classList.remove('rotate-45');
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.classList.add('rotate-45');
             }
         });
-
-        if (answer.style.maxHeight) {
-            answer.style.maxHeight = null;
-            icon.classList.remove('rotate-45');
-            
-        } else {
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            icon.classList.add('rotate-45');
-        }
     });
-});
-// Adicione este código dentro da sua tag <script> no final da página
 
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonials = document.querySelectorAll('.testimonial-text');
-
-    testimonials.forEach(textElement => {
-        // Verifica se o texto está realmente transbordando (sendo cortado)
-        if (textElement.scrollHeight > textElement.clientHeight) {
-            
-            // Cria o botão "Ver mais"
-            const seeMoreBtn = document.createElement('button');
-            seeMoreBtn.innerText = 'Ver mais...';
-            seeMoreBtn.className = 'text-primary font-semibold mt-2 text-sm hover:underline focus:outline-none';
-            
-            // Insere o botão logo após o parágrafo do depoimento
-            textElement.parentNode.insertBefore(seeMoreBtn, textElement.nextSibling);
-
-            // Adiciona a funcionalidade de clique ao botão
-            seeMoreBtn.addEventListener('click', () => {
-                textElement.classList.remove('line-clamp-4'); // Remove a classe que corta o texto
-                seeMoreBtn.style.display = 'none'; // Esconde o botão "Ver mais"
-            });
-        }
-    });
-});
-// ===================================================================
-// LÓGICA DE ENVIO DO FORMULÁRIO DE CONTATO (LANDING PAGE)
-// ===================================================================
-const contactForm = document.getElementById('contact-form');
-const submitButton = document.getElementById('submit-button');
-
-if (contactForm && submitButton) {
-    submitButton.addEventListener('click', async () => {
-        // 1. Captura os dados do formulário
-        const patientName = document.getElementById('nome').value;
-        const patientWhatsapp = document.getElementById('whatsapp').value;
-        const whatsappRedirectURL = 'https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21';
-
-        // 2. Validação simples
-        if (!patientName || !patientWhatsapp) {
-            alert('Por favor, preencha seu nome e WhatsApp.');
-            return;
-        }
-
-        // 3. Desabilita o botão para evitar múltiplos cliques
-        submitButton.disabled = true;
-        submitButton.textContent = 'Enviando...';
-
-        try {
-            // 4. Envia os dados para a sua Netlify Function
-            const response = await fetch('/.netlify/functions/create-appointment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    // Dados que a sua função espera
-                    patientName: patientName,
-                    patientWhatsapp: patientWhatsapp,
-                    // Enviando null para os campos que não temos neste formulário
-                    date: null, 
-                    time: null, 
-                    patientBirthdate: null,
-                }),
-            });
-            
-            const result = await response.json();
-            if (!response.ok) {
-                // Se der erro no servidor, avisa o usuário
-                throw new Error(result.error || 'Ocorreu um erro ao enviar seus dados.');
+    document.addEventListener('DOMContentLoaded', function() {
+        const testimonials = document.querySelectorAll('.testimonial-text');
+        testimonials.forEach(textElement => {
+            if (textElement.scrollHeight > textElement.clientHeight) {
+                const seeMoreBtn = document.createElement('button');
+                seeMoreBtn.innerText = 'Ver mais...';
+                seeMoreBtn.className = 'text-primary font-semibold mt-2 text-sm hover:underline focus:outline-none';
+                textElement.parentNode.insertBefore(seeMoreBtn, textElement.nextSibling);
+                seeMoreBtn.addEventListener('click', () => {
+                    textElement.classList.remove('line-clamp-4');
+                    seeMoreBtn.style.display = 'none';
+                });
             }
-
-            // 5. SUCESSO! Redireciona para o WhatsApp
-            console.log('Dados enviados com sucesso!', result);
-            window.location.href = whatsappRedirectURL;
-
-        } catch (error) {
-            // 6. ERRO! Avisa o usuário e reabilita o botão
-            console.error('Erro ao enviar formulário:', error);
-            alert(`Não foi possível enviar sua solicitação. Por favor, tente novamente. Detalhe: ${error.message}`);
-            submitButton.disabled = false;
-            submitButton.textContent = 'AGENDAR MINHA AVALIAÇÃO AGORA';
-        }
+        });
     });
-}
-        
-    </script>
+
+    const contactForm = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-button');
+    if (contactForm && submitButton) {
+        submitButton.addEventListener('click', async () => {
+            const patientName = document.getElementById('nome').value;
+            const patientWhatsapp = document.getElementById('whatsapp').value;
+            const whatsappRedirectURL = 'https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21';
+            if (!patientName || !patientWhatsapp) {
+                alert('Por favor, preencha seu nome e WhatsApp.');
+                return;
+            }
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            try {
+                const response = await fetch('/.netlify/functions/create-appointment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        patientName: patientName,
+                        patientWhatsapp: patientWhatsapp,
+                        date: null,
+                        time: null,
+                        patientBirthdate: null,
+                    }),
+                });
+                if (!response.ok) {
+                    const errorData = await response.text();
+                    throw new Error(errorData || 'Ocorreu um erro ao enviar seus dados.');
+                }
+                const result = await response.json();
+                console.log('Dados enviados com sucesso!', result);
+                window.location.href = whatsappRedirectURL;
+            } catch (error) {
+                console.error('Erro ao enviar formulário:', error);
+                alert(`Não foi possível enviar sua solicitação. Por favor, tente novamente.`);
+                submitButton.disabled = false;
+                submitButton.textContent = 'AGENDAR MINHA AVALIAÇÃO AGORA';
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
