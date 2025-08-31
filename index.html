@@ -568,8 +568,9 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
     <i class="fab fa-whatsapp"></i>
 </a>
 
-   <script>
-       // ===================================================================
+   
+<script>
+    // ===================================================================
     // FUNÇÃO DE CONVERSÃO DO GOOGLE ADS
     // ===================================================================
     function gtag_report_conversion(url) {
@@ -585,8 +586,6 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
       return false;
     }
 
-    // O resto do seu JavaScript continua aqui...
-    var swiper = new Swiper(".mySwiper", { ... });
     // ===================================================================
     // INICIALIZAÇÃO DO CARROSSEL DE RESULTADOS (mySwiper)
     // ===================================================================
@@ -604,7 +603,6 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
             slideShadows: true,
         },
         navigation: {
-            // ATENÇÃO: Usando classes genéricas que estão DENTRO do HTML deste carrossel
             nextEl: "#resultados .swiper-button-next",
             prevEl: "#resultados .swiper-button-prev",
         },
@@ -626,7 +624,6 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
             clickable: true,
         },
         navigation: {
-            // ATENÇÃO: Apontando para as classes ÚNICAS que criamos
             nextEl: ".testimonial-button-next",
             prevEl: ".testimonial-button-prev",
         },
@@ -717,11 +714,11 @@ Minha missão é transformar seu tratamento em uma jornada <strong>tranquila e s
                     throw new Error(errorData || 'Ocorreu um erro ao enviar seus dados.');
                 }
                 const result = await response.json();
-                // ...
-// 5. SUCESSO! Dispara a conversão e redireciona para o WhatsApp
-console.log('Dados enviados com sucesso!', result);
-gtag_report_conversion(whatsappRedirectURL);
-// ...
+                
+                // SUCESSO! Dispara a conversão e redireciona para o WhatsApp
+                console.log('Dados enviados com sucesso!', result);
+                gtag_report_conversion(whatsappRedirectURL);
+                
             } catch (error) {
                 console.error('Erro ao enviar formulário:', error);
                 alert(`Não foi possível enviar sua solicitação. Por favor, tente novamente.`);
@@ -731,6 +728,5 @@ gtag_report_conversion(whatsappRedirectURL);
         });
     }
 </script>
-
 </body>
 </html>
