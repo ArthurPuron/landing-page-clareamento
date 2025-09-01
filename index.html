@@ -43,7 +43,7 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-       /* ====================================================== */
+/* ====================================================== */
 /* --- CÓDIGO RESPONSIVO PARA A SEÇÃO INICIAL (HERO) --- */
 /* ====================================================== */
 
@@ -69,29 +69,51 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
   font-size: 1.125rem;
 }
 
-/* 2. NOVO AJUSTE (para telas entre 400px e 429px)
-   Sobe o conteúdo e aumenta o tamanho das fontes. */
-@media (min-width: 400px) and (max-width: 429px) {
+/* 2. AJUSTE PARA TODAS AS TELAS MÓVEIS MAIORES (400px em diante)
+   Agora esta regra se aplica a TODAS as telas maiores que 399px,
+   até chegar no breakpoint de desktop. */
+@media (min-width: 400px) {
   #inicio {
-    padding-top: 15vh; /* Menor que antes para SUBIR mais o conteúdo */
+    padding-top: 15vh; /* Conteúdo mais para cima */
     padding-bottom: 6rem;
   }
   #inicio h1 {
-    font-size: 2.6rem; /* Aumentei mais um pouco */
+    font-size: 2.6rem; /* Título maior */
   }
   #inicio h2 {
-    font-size: 1.4rem; /* Aumentei mais um pouco */
+    font-size: 1.4rem; /* Subtítulo maior */
   }
-  /* Aumentando o tamanho dos balões */
+  /* Balões de benefícios maiores */
   #inicio .flex-wrap > div {
-    font-size: 0.95rem; /* Um pouco maior que o text-sm */
+    font-size: 0.95rem;
     padding: 0.6rem 1.4rem;
   }
   #inicio .cta-button {
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Botão maior */
   }
 }
 
+/* 3. RESET PARA DESKTOP (768px ou mais)
+   Este bloco permanece igual, garantindo a transição suave para o desktop. */
+@media (min-width: 768px) {
+  #inicio {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  #inicio h1 {
+    font-size: 3.75rem;
+  }
+  #inicio h2 {
+    font-size: 1.5rem;
+  }
+  #inicio .flex-wrap > div {
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
+  }
+  #inicio .cta-button {
+     font-size: 1.125rem;
+  }
+}
 /* 3. AJUSTE PARA TELAS MAIORES (de 430px em diante, até 767px)
    Mantém o visual anterior para telas maiores, para não perdermos o ajuste. */
 @media (min-width: 430px) {
