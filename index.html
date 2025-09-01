@@ -42,7 +42,7 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <<style>
+   <style>
     /* ====================================================== */
     /* --- CÓDIGO RESPONSIVO PARA A SEÇÃO INICIAL (HERO) --- */
     /* ====================================================== */
@@ -70,21 +70,22 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
     /* 2. AJUSTE PARA TODAS AS TELAS MÓVEIS MAIORES (400px em diante) */
     @media (min-width: 400px) {
       #inicio {
-        padding-top: 15vh; /* Conteúdo mais para cima */
+        padding-top: 15vh;
         padding-bottom: 6rem;
       }
       #inicio h1 {
-        font-size: 2.6rem; /* Título maior */
+        font-size: 2.8rem; /* Aumentei mais um pouco */
       }
       #inicio h2 {
-        font-size: 1.4rem; /* Subtítulo maior */
+        font-size: 1.5rem; /* Aumentei mais um pouco */
       }
       #inicio .flex-wrap > div {
-        font-size: 0.95rem;
+        font-size: 1rem;   /* Aumentei mais um pouco */
         padding: 0.6rem 1.4rem;
       }
       #inicio .cta-button {
-        font-size: 1.25rem; /* Botão maior */
+        font-size: 1.25rem;  /* Tamanho mantido, como pedido */
+        margin-top: 1.5rem;  /* ADICIONADO: Desce o botão */
       }
     }
 
@@ -106,6 +107,7 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
       }
       #inicio .cta-button {
         font-size: 1.125rem;
+        margin-top: 0; /* ADICIONADO: Remove a margem no desktop */
       }
     }
 
