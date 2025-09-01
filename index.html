@@ -48,6 +48,43 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
 /* ========================================================== */
 @media (max-width: 767px) { /* Aplica apenas em telas de celular */
     #hero-content-wrapper {
+        padding-top: 12vh; /* Mantenha este valor, ele define a posição inicial do bloco */
+        padding-bottom: 15vh;
+        justify-content: flex-start;
+    }
+
+    .hero-title {
+        font-size: clamp(2.25rem, 10vw, 3rem); 
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.125rem, 4.5vw, 1.25rem);
+    }
+
+    /* NOVAS REGRAS AQUI */
+    .hero-title.mb-adjust {
+        margin-bottom: -1rem; /* Margem negativa para "puxar" o título para cima, ajustando o mb-4 */
+    }
+
+    .hero-subtitle.mt-adjust {
+        margin-top: 1.5rem; /* Margem extra para "empurrar" o subtítulo para baixo, ajustando o mb-6 */
+    }
+}
+
+/* Estilos para Desktop (restaura o padrão do Tailwind) */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.75rem; /* Equivalente a text-6xl */
+    }
+    .hero-subtitle {
+        font-size: 1.5rem; /* Equivalente a text-2xl */
+    }
+}
+        /* ========================================================== */
+/* ESTILOS FLUIDOS PARA A SEÇÃO INICIAL (MOBILE) */
+/* ========================================================== */
+@media (max-width: 767px) { /* Aplica apenas em telas de celular */
+    #hero-content-wrapper {
         padding-top: 12vh; /* Distância do topo = 18% da altura da tela */
         padding-bottom: 15vh; /* Espaço na base */
         justify-content: flex-start; /* Força o alinhamento no topo */
@@ -165,15 +202,15 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
     
     <div id="hero-content-wrapper" class="absolute inset-0 flex flex-col justify-start md:justify-center md:items-center text-left md:text-center">
         <div class="container mx-auto px-6 w-full">
-            <h1 class="hero-title text-primary font-bold leading-tight mb-4">
-                O Sorriso Iluminado 
-                <br class="hidden md:block"> 
-                que Você Merece
-            </h1>
-            
-            <h2 class="hero-subtitle font-light mb-6 text-gray-700">
-                Um sorriso natural<br class="md:hidden"> com tratamento<br class="md:hidden"> exclusivo para você.
-            </h2>
+            <h1 class="hero-title text-primary font-bold leading-tight mb-4 mb-adjust">
+    O Sorriso Iluminado 
+    <br class="hidden md:block"> 
+    que Você Merece
+</h1>
+
+<h2 class="hero-subtitle font-light mb-6 text-gray-700 mt-adjust">
+    Um sorriso natural<br class="md:hidden"> com tratamento<br class="md:hidden"> exclusivo para você.
+</h2>
             
             <div class="flex flex-wrap justify-start md:justify-center items-center gap-3 md:gap-4 mb-8">
                 <div class="bg-white bg-opacity-70 text-primary text-sm md:text-base font-medium py-2 px-5 rounded-full flex items-center backdrop-blur-sm shadow-md">
