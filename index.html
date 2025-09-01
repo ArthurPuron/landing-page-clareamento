@@ -43,6 +43,36 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* ========================================================== */
+/* ESTILOS FLUIDOS PARA A SEÇÃO INICIAL (MOBILE) */
+/* ========================================================== */
+@media (max-width: 767px) { /* Aplica apenas em telas de celular */
+    #hero-content-wrapper {
+        padding-top: 18vh; /* Distância do topo = 18% da altura da tela */
+        padding-bottom: 15vh; /* Espaço na base */
+        justify-content: flex-start; /* Força o alinhamento no topo */
+    }
+
+    .hero-title {
+        /* Fonte Fluida: Mínimo de 36px, ideal de 10vw, máximo de 48px */
+        font-size: clamp(2.25rem, 10vw, 3rem); 
+    }
+
+    .hero-subtitle {
+        /* Fonte Fluida: Mínimo de 18px, ideal de 4.5vw, máximo de 20px */
+        font-size: clamp(1.125rem, 4.5vw, 1.25rem);
+    }
+}
+
+/* Estilos para Desktop (restaura o padrão do Tailwind) */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.75rem; /* Equivalente a text-6xl */
+    }
+    .hero-subtitle {
+        font-size: 1.5rem; /* Equivalente a text-2xl */
+    }
+}
         /* Adicione este novo bloco de CSS na sua tag <style> */
 
 /* Posicionamento customizado para as setas dos DEPOIMENTOS */
@@ -127,45 +157,7 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
 </head>
 <body class="text-base-color">
 
-<section id="inicio" 
-    class="relative min-h-screen bg-cover bg-center 
-           bg-[url('https://i.imgur.com/k5jrbWE.jpeg')] md:bg-[url('https://i.imgur.com/qW39Ycs.png')]">
 
-    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-90"></div>
-    
-    <div class="relative z-10 container mx-auto px-6 pt-24 pb-24 flex flex-col items-start md:items-center text-left md:text-center min-h-screen justify-center md:justify-center">
-        
-        <div class="w-full"> <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 text-primary">
-                O Sorriso Iluminado 
-                <br class="hidden md:block"> 
-                que Você Merece
-            </h1>
-            
-            <h2 class="text-xl sm:text-2xl md:text-2xl font-light mb-6 max-w-3xl md:mx-auto text-gray-700">
-               Dentes mais brancos<br class="md:hidden"> com tratamento<br class="md:hidden"> exclusivo para você.
-            </h2>
-            
-            <div class="flex flex-wrap justify-start md:justify-center items-center gap-3 md:gap-4 mb-8">
-                <div class="bg-white bg-opacity-70 text-primary text-sm md:text-base font-medium py-2 px-5 rounded-full flex items-center backdrop-blur-sm shadow-md">
-                    <i class="fas fa-check mr-2"></i>
-                    <span>Diagnóstico Detalhado</span>
-                </div>
-                <div class="bg-white bg-opacity-70 text-primary text-sm md:text-base font-medium py-2 px-5 rounded-full flex items-center backdrop-blur-sm shadow-md">
-                    <i class="fas fa-check mr-2"></i>
-                    <span>Avaliações 5 Estrelas</span>
-                </div>
-                <div class="bg-white bg-opacity-70 text-primary text-sm md:text-base font-medium py-2 px-5 rounded-full flex items-center backdrop-blur-sm shadow-md">
-                    <i class="fas fa-check mr-2"></i>
-                    <span>Associação de Laserterapia</span>
-                </div>
-            </div>
-
-            <a href="#contato" class="cta-button bg-primary hover:bg-primary-hover text-white font-bold py-4 px-6 sm:px-10 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 whitespace-nowrap">
-                Quero Agendar Minha Avaliação
-            </a>
-        </div>
-    </div>
-</section>
 <section id="resultados" class="py-20 bg-background overflow-hidden">
     <div class="container mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12">Sorrisos Reais, Com Naturalidade</h2>
