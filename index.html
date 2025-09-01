@@ -43,6 +43,66 @@ src="https://www.facebook.com/tr?id=1117972976939164&ev=PageView&noscript=1"
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* ====================================================== */
+/* --- CÓDIGO RESPONSIVO PARA A SEÇÃO INICIAL (HERO) --- */
+/* ====================================================== */
+
+/* 1. ESTILO BASE (para telas de 0px até 399px)
+   Recria EXATAMENTE o visual do seu código original. */
+#inicio {
+  padding-top: 4rem;    /* Equivalente ao pt-16 do Tailwind */
+  padding-bottom: 6rem; /* Equivalente ao pb-24 do Tailwind */
+}
+#inicio h1 {
+  font-size: 2.25rem; /* Equivalente ao text-4xl */
+  line-height: 2.5rem;
+}
+#inicio h2 {
+  font-size: 1.25rem; /* Equivalente ao text-xl */
+}
+#inicio .cta-button {
+  font-size: 1.125rem; /* Equivalente ao text-lg */
+}
+
+
+/* 2. AJUSTE PARA TELAS MÓVEIS MAIORES (de 400px em diante)
+   Aqui o conteúdo sobe um pouco e as fontes aumentam. */
+@media (min-width: 400px) {
+  #inicio {
+    padding-top: 18vh;
+    padding-bottom: 6rem; /* Mantemos um espaço embaixo */
+  }
+  #inicio h1 {
+    font-size: 2.5rem; /* Um pouco maior que o original */
+  }
+  #inicio h2 {
+    font-size: 1.375rem; /* Um pouco maior que o original */
+  }
+  #inicio .cta-button {
+    font-size: 1.25rem; /* Um pouco maior que o original */
+  }
+}
+
+
+/* 3. RESET PARA DESKTOP (768px ou mais)
+   Isso garante que, em telas de tablet e desktop, os estilos do
+   Tailwind (md:pt-0, md:text-6xl, etc.) voltem a funcionar
+   corretamente, sem interferência dos nossos ajustes. */
+@media (min-width: 768px) {
+  #inicio {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  #inicio h1 {
+    font-size: 3.75rem; /* Volta para o md:text-6xl */
+  }
+  #inicio h2 {
+    font-size: 1.5rem; /* Volta para o md:text-2xl */
+  }
+  #inicio .cta-button {
+     font-size: 1.125rem; /* Volta para o text-lg original */
+  }
+}
         /* Adicione este novo bloco de CSS na sua tag <style> */
 
 /* Posicionamento customizado para as setas dos DEPOIMENTOS */
